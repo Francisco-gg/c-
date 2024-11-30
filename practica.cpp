@@ -1,25 +1,37 @@
+#include <iostream>
+#include <fstream>
 #include <stdlib.h>
 #include <stdio.h>
 
 using namespace std;
 
-void seleccion(){
+struct perfil{
 
-    int sel;
-
-    printf("\t\t ELIJE UN PERSONAJE\n\n");
-
-    printf("#################### \n");
-    printf("1. LUCHADOR \n");
-    printf("2. MAGO \n");
-    printf("3. TANQUE \n");
-    printf("#################### \n\n");
-
-    printf("ELIJE: ");scanf("%d",&sel);
+    int cedula;
+    string name, l_name, direccion;
 }
+
+void datos();
 
 int main(){
 
+    datos();
 
-   
+    return 0;
+}
+
+void datos(){
+
+    char seguir='S';
+    struct perfil pj;
+
+    do{
+
+        printf("CEDULA: "); scanf("%d",&pj.cedula);
+        fflush(stdin);
+        printf("NOMBRE: "); getline(cin,pj.nombre);
+        printf("APELLIDO: "); getline(cin,pj.l_name);
+        printf("DIRECCION: "); getline(cin,pj.direccion);
+
+    }while(seguir=='S')
 }
