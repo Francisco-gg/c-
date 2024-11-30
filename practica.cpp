@@ -33,5 +33,6 @@ void datos(){
         printf("APELLIDO: "); getline(cin,pj.l_name);
         printf("DIRECCION: "); getline(cin,pj.direccion);
 
+        printf("SEGUIR AGRAGANDO GENTE?: "); scanf("%c",&seguir);
     }while(seguir=='S')
 }
