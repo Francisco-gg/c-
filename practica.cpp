@@ -6,7 +6,6 @@
 using namespace std;
 
 struct perfil{
-
     int cedula;
     string name, l_name, direccion;
 }
@@ -21,18 +20,26 @@ int main(){
 }
 
 void datos(){
-
     char seguir='S';
     struct perfil pj;
 
-    do{
+    ofstream ofdatos;
+    ofdatos.open("INFO.txt",ios::app);
 
+    do{
         printf("CEDULA: "); scanf("%d",&pj.cedula);
         fflush(stdin);
-        printf("NOMBRE: "); getline(cin,pj.nombre);
+        printf("NOMBRE: "); getline(cin,pj.name);
         printf("APELLIDO: "); getline(cin,pj.l_name);
         printf("DIRECCION: "); getline(cin,pj.direccion);
 
-        printf("SEGUIR AGRAGANDO GENTE?: "); scanf("%c",&seguir);
-    }while(seguir=='S')
+        ofdatos<<"CEDULA: "<<pj.cedula<<endl;
+        ofdatos<<"NOMBRE: "<<pj.name<<endl;
+        ofdatos<<"APELLIDO: "<<pj.l_name<<endl;
+        ofdatos<<"DIRECCION: "<<pj.direccion;
+
+        printf("SEGUIR AGREGANDO GENTE?: "); scanf("%c",&seguir);
+        seguir=toupper(seguir);
+    }while(seguir=='S');
+    ofdatos.close();
 }
